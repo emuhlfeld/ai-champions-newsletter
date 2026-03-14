@@ -1,0 +1,726 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AI Champions Newsletter — Brand & Retail Experience</title>
+  <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,600&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --green:   #183E40;
+      --mid:     #0D6363;
+      --accent:  #4C8380;
+      --cream:   #ECE2DF;
+      --latte:   #DCCFC0;
+      --blush:   #DFC7BF;
+      --lavender:#DAD4DE;
+      --black:   #2C2C2C;
+      --bg:      #F9F9F9;
+    }
+
+    body {
+      background: var(--bg);
+      color: var(--black);
+      font-family: 'Avenir', 'Avenir Next', 'Nunito Sans', sans-serif;
+      font-size: 13px;
+      line-height: 1.55;
+    }
+
+    a { color: inherit; }
+
+    /* ─── HEADER ─── */
+    .header {
+      background: var(--green);
+      padding: 40px 52px 36px;
+      position: relative;
+      overflow: hidden;
+    }
+    .header::after {
+      content: '';
+      position: absolute;
+      right: -60px; top: -60px;
+      width: 320px; height: 320px;
+      border-radius: 50%;
+      background: rgba(76,131,128,0.13);
+      pointer-events: none;
+    }
+    .header::before {
+      content: '';
+      position: absolute;
+      right: 60px; bottom: -80px;
+      width: 180px; height: 180px;
+      border-radius: 50%;
+      background: rgba(13,99,99,0.18);
+      pointer-events: none;
+    }
+    .header-eyebrow {
+      font-size: 10px;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 10px;
+    }
+    .header h1 {
+      font-family: 'EB Garamond', Georgia, serif;
+      font-size: 48px;
+      font-weight: 400;
+      color: #fff;
+      line-height: 1.05;
+      margin-bottom: 10px;
+      position: relative;
+      z-index: 1;
+    }
+    .header h1 em {
+      font-style: italic;
+      color: var(--cream);
+    }
+    .header-tagline {
+      font-family: 'EB Garamond', Georgia, serif;
+      font-size: 16px;
+      font-style: italic;
+      color: rgba(236,226,223,0.75);
+      margin-bottom: 18px;
+    }
+    .header-meta {
+      display: flex;
+      gap: 20px;
+      font-size: 10px;
+      color: var(--accent);
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    /* ─── MAIN ─── */
+    .main {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 36px 40px 60px;
+    }
+
+    /* ─── INTRO ─── */
+    .intro {
+      padding: 28px 0 4px;
+      border-left: 4px solid var(--accent);
+      padding-left: 20px;
+      margin-bottom: 32px;
+    }
+    .intro p {
+      font-family: 'EB Garamond', Georgia, serif;
+      font-size: 19px;
+      line-height: 1.6;
+      color: var(--black);
+    }
+    .intro a {
+      color: var(--green);
+      font-weight: 600;
+      text-decoration: none;
+      border-bottom: 1px solid var(--accent);
+    }
+
+    /* ─── SECTION HEADER ─── */
+    .sec-head {
+      display: flex;
+      align-items: baseline;
+      gap: 12px;
+      margin-bottom: 14px;
+    }
+    .sec-title {
+      font-family: 'EB Garamond', Georgia, serif;
+      font-size: 26px;
+      font-weight: 600;
+      color: var(--green);
+      line-height: 1;
+    }
+    .sec-title.mid   { color: var(--mid); }
+    .sec-title.accent{ color: var(--accent); }
+    .sec-sub {
+      font-size: 10px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--accent);
+    }
+
+    hr.div {
+      border: none;
+      border-top: 1px solid var(--latte);
+      margin: 28px 0;
+    }
+
+    /* ─── RESOURCES ─── */
+    .res-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 10px;
+    }
+    .res-card {
+      border: 1px solid var(--latte);
+      border-radius: 6px;
+      padding: 14px 16px;
+      background: #fff;
+      display: flex;
+      flex-direction: column;
+      gap: 3px;
+      border-top: 3px solid var(--accent);
+    }
+    .res-card:nth-child(1) { border-top-color: var(--green); }
+    .res-card:nth-child(2) { border-top-color: var(--mid); }
+    .res-card:nth-child(3) { border-top-color: var(--accent); }
+    .res-card:nth-child(4) { border-top-color: var(--blush); }
+    .res-card.dark {
+      background: var(--green);
+      border-color: var(--green);
+      border-top-color: var(--accent);
+    }
+    .res-tag {
+      font-size: 9px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--accent);
+    }
+    .res-card.dark .res-tag { color: rgba(76,131,128,0.85); }
+    .res-name {
+      font-family: 'EB Garamond', Georgia, serif;
+      font-size: 17px;
+      font-weight: 600;
+      color: var(--green);
+      line-height: 1.2;
+    }
+    .res-card.dark .res-name { color: #fff; }
+    .res-desc {
+      font-size: 11.5px;
+      color: #555;
+      line-height: 1.45;
+    }
+    .res-card.dark .res-desc { color: var(--cream); }
+    .res-links {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-top: 4px;
+    }
+    .res-link {
+      font-size: 10px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--accent);
+      text-decoration: none;
+      border-bottom: 1px solid currentColor;
+      padding-bottom: 1px;
+    }
+    .res-card.dark .res-link { color: rgba(236,226,223,0.85); border-bottom-color: rgba(236,226,223,0.4); }
+
+    /* ─── TIPS CHANNEL BANNER ─── */
+    .tips-banner {
+      background: var(--lavender);
+      border-radius: 6px;
+      padding: 16px 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+    }
+    .tips-left {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+    .tips-emoji {
+      font-size: 28px;
+      line-height: 1;
+    }
+    .tips-label {
+      font-family: 'EB Garamond', Georgia, serif;
+      font-size: 20px;
+      font-weight: 600;
+      color: var(--green);
+    }
+    .tips-sub {
+      font-size: 11px;
+      color: #555;
+      margin-top: 1px;
+    }
+    .tips-cta {
+      white-space: nowrap;
+      font-size: 10px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--green);
+      text-decoration: none;
+      border: 1px solid var(--green);
+      border-radius: 3px;
+      padding: 6px 14px;
+    }
+
+    /* ─── NEWS ─── */
+    .news-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 10px;
+    }
+    .news-card {
+      background: #fff;
+      border: 1px solid var(--latte);
+      border-radius: 6px;
+      padding: 14px 14px 12px;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      border-top: 3px solid var(--accent);
+    }
+    .news-card:nth-child(1) { border-top-color: var(--green); }
+    .news-card:nth-child(2) { border-top-color: var(--mid); }
+    .news-card:nth-child(3) { border-top-color: var(--blush); }
+    .news-badge {
+      display: inline-block;
+      background: var(--green);
+      color: #fff;
+      font-size: 9px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      padding: 2px 7px;
+      border-radius: 2px;
+      width: fit-content;
+    }
+    .news-card:nth-child(2) .news-badge { background: var(--mid); }
+    .news-card:nth-child(3) .news-badge { background: var(--blush); color: var(--black); }
+    .news-source {
+      font-size: 10px;
+      color: var(--accent);
+      letter-spacing: 0.08em;
+    }
+    .news-hl {
+      font-family: 'EB Garamond', Georgia, serif;
+      font-size: 15px;
+      font-weight: 600;
+      line-height: 1.25;
+      color: var(--green);
+      flex: 1;
+    }
+    .news-hl a { text-decoration: none; color: inherit; }
+    .news-hl a:hover { text-decoration: underline; }
+    .news-read {
+      font-size: 10px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--accent);
+      text-decoration: none;
+      border-bottom: 1px solid currentColor;
+      padding-bottom: 1px;
+      width: fit-content;
+    }
+
+    /* ─── AGENTS ─── */
+    .agents-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+    }
+    .agent-card {
+      background: var(--cream);
+      border-radius: 6px;
+      padding: 18px 18px 16px;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+    .agent-card:nth-child(2) { background: var(--green); }
+    .agent-icon-circle {
+      width: 36px; height: 36px;
+      border-radius: 50%;
+      background: var(--green);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 16px;
+      margin-bottom: 4px;
+    }
+    .agent-card:nth-child(2) .agent-icon-circle {
+      background: rgba(76,131,128,0.25);
+    }
+    .agent-name {
+      font-family: 'EB Garamond', Georgia, serif;
+      font-size: 17px;
+      font-weight: 600;
+      color: var(--green);
+      line-height: 1.2;
+    }
+    .agent-card:nth-child(2) .agent-name { color: #fff; }
+    .agent-desc {
+      font-size: 12px;
+      color: #444;
+      line-height: 1.5;
+    }
+    .agent-card:nth-child(2) .agent-desc { color: var(--cream); }
+    .agent-prompts {
+      font-size: 11px;
+      font-style: italic;
+      color: var(--accent);
+      line-height: 1.5;
+    }
+    .agent-card:nth-child(2) .agent-prompts { color: rgba(76,131,128,0.9); }
+    .agent-cta {
+      font-size: 10px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--accent);
+      text-decoration: none;
+      border-bottom: 1px solid currentColor;
+      padding-bottom: 1px;
+      width: fit-content;
+      margin-top: 2px;
+    }
+    .agent-card:nth-child(2) .agent-cta { color: rgba(236,226,223,0.85); border-bottom-color: rgba(236,226,223,0.4); }
+
+    /* ─── VOCAB GRID ─── */
+    .vocab-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 8px;
+    }
+    .vocab-pill {
+      border-radius: 5px;
+      overflow: hidden;
+      border: 1px solid var(--latte);
+    }
+    .vocab-term {
+      background: var(--green);
+      color: #fff;
+      font-family: 'EB Garamond', Georgia, serif;
+      font-size: 14px;
+      font-weight: 600;
+      padding: 8px 12px;
+    }
+    .vocab-pill:nth-child(2) .vocab-term { background: var(--mid); }
+    .vocab-pill:nth-child(3) .vocab-term { background: var(--accent); }
+    .vocab-pill:nth-child(4) .vocab-term { background: var(--green); }
+    .vocab-pill:nth-child(5) .vocab-term { background: var(--mid); }
+    .vocab-pill:nth-child(6) .vocab-term { background: var(--accent); }
+    .vocab-pill:nth-child(7) .vocab-term { background: var(--green); }
+    .vocab-pill:nth-child(8) .vocab-term { background: var(--mid); }
+    .vocab-pill:nth-child(9) .vocab-term { background: var(--accent); }
+    .vocab-def {
+      background: #fff;
+      font-size: 11.5px;
+      color: #444;
+      padding: 8px 12px;
+      line-height: 1.5;
+    }
+
+    /* ─── CLAUDE PRODUCTS ─── */
+    .products-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 10px;
+    }
+    .product-card {
+      border-radius: 6px;
+      padding: 16px;
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+    }
+    .product-card:nth-child(1) { background: var(--green); }
+    .product-card:nth-child(2) { background: var(--mid); }
+    .product-card:nth-child(3) { background: var(--accent); }
+    .product-icon { font-size: 22px; margin-bottom: 2px; }
+    .product-name {
+      font-family: 'EB Garamond', Georgia, serif;
+      font-size: 16px;
+      font-weight: 600;
+      color: #fff;
+    }
+    .product-tag {
+      font-size: 9px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.6);
+    }
+    .product-desc {
+      font-size: 11.5px;
+      color: rgba(255,255,255,0.85);
+      line-height: 1.5;
+    }
+
+    /* ─── PRO TIP ─── */
+    .pro-tip {
+      background: var(--lavender);
+      border-radius: 6px;
+      padding: 16px 20px;
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 14px;
+      align-items: start;
+    }
+    .pro-tip-icon {
+      font-size: 26px;
+      line-height: 1;
+      padding-top: 2px;
+    }
+    .pro-tip-title {
+      font-family: 'EB Garamond', Georgia, serif;
+      font-size: 17px;
+      font-weight: 600;
+      color: var(--green);
+      margin-bottom: 4px;
+    }
+    .pro-tip-body {
+      font-size: 12px;
+      color: #444;
+      line-height: 1.6;
+    }
+    .pro-tip-body strong { color: var(--green); }
+
+    /* ─── FOOTER ─── */
+    .footer {
+      background: var(--black);
+      padding: 18px 52px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .footer-tagline {
+      font-family: 'EB Garamond', Georgia, serif;
+      font-size: 16px;
+      font-style: italic;
+      color: #fff;
+    }
+    .footer-meta {
+      font-size: 10px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--accent);
+    }
+
+    @media (max-width: 640px) {
+      .header { padding: 28px 24px; }
+      .header h1 { font-size: 34px; }
+      .main { padding: 24px 20px 48px; }
+      .res-grid, .agents-grid, .vocab-grid, .products-grid, .news-grid { grid-template-columns: 1fr; }
+      .footer { flex-direction: column; gap: 8px; padding: 18px 24px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HEADER -->
+  <div class="header">
+    <div class="header-eyebrow">AI Champions — Brand &amp; Retail Experience</div>
+    <h1>Advancing the Brand<br><em>with AI</em></h1>
+    <div class="header-tagline">What we're building. What we're learning. What's next.</div>
+    <div class="header-meta">
+      <span>March 2026</span>
+      <span>✦ Brand &amp; Retail Experience</span>
+    </div>
+  </div>
+
+  <!-- MAIN -->
+  <div class="main">
+
+    <!-- INTRO -->
+    <div class="intro">
+      <p>Welcome to the <strong>AI Champions Newsletter</strong> for Brand &amp; Retail Experience — a monthly roundup of resources, tools, and insights to keep the team current on AI. Office hours recordings and notes are available on the <a href="https://brilliantearth.sharepoint.com/Marketing/SitePages/AI-CHAMPIONS---BRAND-&-RETAIL-EXPERIENCE.aspx" target="_blank">AI Champions SharePoint site →</a></p>
+    </div>
+
+    <hr class="div" />
+
+    <!-- RESOURCES -->
+    <div class="sec-head">
+      <div class="sec-title">Resources</div>
+      <div class="sec-sub">Tools &amp; Team Knowledge</div>
+    </div>
+    <div class="res-grid">
+      <div class="res-card dark">
+        <div class="res-tag">Guide · Anthropic</div>
+        <div class="res-name">The Complete Guide to Building Skills for Claude</div>
+        <div class="res-desc">Anthropic's official guide to building Claude Skills — from structure and planning to testing and distribution.</div>
+        <div class="res-links">
+          <a class="res-link" href="https://resources.anthropic.com" target="_blank">resources.anthropic.com →</a>
+        </div>
+      </div>
+      <div class="res-card">
+        <div class="res-tag">External Training · AI Certification</div>
+        <div class="res-name">Vjal Institute</div>
+        <div class="res-desc">Applied AI training and certification. Complete coursework and submit weekly homework through the portal.</div>
+        <div class="res-links">
+          <a class="res-link" href="https://vjal.ai/" target="_blank">Visit →</a>
+          <a class="res-link" href="https://brilliantearth.sharepoint.com/sites/AI_Champions/Shared%20Documents/Forms/AllItems.aspx?id=%2Fsites%2FAI%5FChampions%2FShared%20Documents%2FVJAL%20Homework%20%2D%20Pam%20Catlett&viewid=917b39e8%2D57b5%2D4348%2Dbb5a%2D2cb0f2418975&p=true&ct=1771518323499&or=OWA%2DNT%2DMail&cid=3833301f%2Dd545%2D134b%2D1143%2D0bd678e1ed7f&LOF=1&ovuser=069d529c%2Dd641%2D44ab%2Dab36%2D7cbdfbbec8be%2Cemuhlfeld%40brilliantearth%2Ecom&OR=Teams%2DHL&CT=1773353473228&clickparams=eyJBcHBOYW1lIjoiVGVhbXMtRGVza3RvcCIsIkFwcFZlcnNpb24iOiI1MC8yNjAyMDEwMTEyMCIsIkhhc0ZlZGVyYXRlZFVzZXIiOmZhbHNlfQ%3D%3D" target="_blank">Weekly Homework →</a>
+        </div>
+      </div>
+      <div class="res-card">
+        <div class="res-tag">Team Knowledge · Creative &amp; Design</div>
+        <div class="res-name">In-House AI Workflow Deck</div>
+        <div class="res-desc">How the creative team uses AI across image production, post-production, and video today.</div>
+        <div class="res-links">
+          <a class="res-link" href="https://www.figma.com/deck/0Xt2TkMBeOJTeEctE1hUqL/In-House-AI-Workflow?node-id=1-33&t=efd1IdplxpRV5njT-1&scaling=min-zoom&content-scaling=fixed&page-id=0%3A1" target="_blank">View Deck →</a>
+        </div>
+      </div>
+      <div class="res-card">
+        <div class="res-tag">Team Knowledge · Design</div>
+        <div class="res-name">Design Team: AI Tools Overview</div>
+        <div class="res-desc">An early-stage overview of AI tools the design team has explored — useful context for where we started.</div>
+        <div class="res-links">
+          <a class="res-link" href="https://www.figma.com/deck/36Jw6s5zIc3N0vPcTtAXz3/Design-Team--AI-Tools-Overview?node-id=1-33&t=2FD2r6FgMO99Dq4B-1&scaling=min-zoom&content-scaling=fixed&page-id=0%3A1" target="_blank">View Deck →</a>
+        </div>
+      </div>
+    </div>
+
+    <hr class="div" />
+
+    <!-- AI TIPS & TRICKS -->
+    <div class="tips-banner">
+      <div class="tips-left">
+        <div class="tips-emoji">💬</div>
+        <div>
+          <div class="tips-label">AI Tips &amp; Tricks</div>
+          <div class="tips-sub">Teams Channel · Real-time cross-sharing for the team</div>
+        </div>
+      </div>
+      <a class="tips-cta" href="https://teams.microsoft.com/l/channel/19%3AkFpANEplaYQpbKLhTCR9wdIA2vqViBobS0FuK8gSxME1%40thread.tacv2/AI%20Tips%20x%20Tricks?groupId=33fa1afa-6b59-4dcd-bb17-9ea90ad426ab&tenantId=069d529c-d641-44ab-ab36-7cbdfbbec8be" target="_blank">Join the Channel →</a>
+    </div>
+
+    <hr class="div" />
+
+    <!-- AI IN THE NEWS -->
+    <div class="sec-head">
+      <div class="sec-title">AI In The News</div>
+      <div class="sec-sub">March 2026 · One Read Each for Marketing, Creative &amp; Real Estate</div>
+    </div>
+    <div class="news-grid">
+      <div class="news-card">
+        <div class="news-badge">Marketing</div>
+        <div class="news-source">Adweek · March 3, 2026</div>
+        <div class="news-hl"><a href="https://www.adweek.com/brand-marketing/adweeks-ai-power-50-shaping-the-next-phase-of-advertising/" target="_blank">AI Power 50: Shaping the Next Phase of Advertising</a></div>
+        <a class="news-read" href="https://www.adweek.com/brand-marketing/adweeks-ai-power-50-shaping-the-next-phase-of-advertising/" target="_blank">Read →</a>
+      </div>
+      <div class="news-card">
+        <div class="news-badge">Creative</div>
+        <div class="news-source">Newsweek · March 11, 2026</div>
+        <div class="news-hl"><a href="https://www.newsweek.com/ai-creativity-marketing-future-advertising-webinar-11655598" target="_blank">AI May Change Marketing, But Creativity Changes the Status Quo</a></div>
+        <a class="news-read" href="https://www.newsweek.com/ai-creativity-marketing-future-advertising-webinar-11655598" target="_blank">Read →</a>
+      </div>
+      <div class="news-card">
+        <div class="news-badge">Real Estate</div>
+        <div class="news-source">McKinsey / MIPIM · March 2026</div>
+        <div class="news-hl"><a href="https://blog.mipimworld.com/mipim-2026/is-2026-the-year-ai-changes-real-estate/" target="_blank">Is 2026 the Year AI Changes Real Estate?</a></div>
+        <a class="news-read" href="https://blog.mipimworld.com/mipim-2026/is-2026-the-year-ai-changes-real-estate/" target="_blank">Read →</a>
+      </div>
+    </div>
+
+    <hr class="div" />
+
+    <!-- BE AGENTS -->
+    <div class="sec-head">
+      <div class="sec-title">BE Team-Created Agents</div>
+      <div class="sec-sub">Built By Us · For Us</div>
+    </div>
+    <div class="agents-grid">
+      <div class="agent-card">
+        <div class="agent-icon-circle">🔍</div>
+        <div class="agent-name">BE Brand Visual QA Agent</div>
+        <div class="agent-desc">Upload an image or Figma URL — get an instant brand QA report scored against BE standards. No prompt needed.</div>
+        <a class="agent-cta" href="https://claude.ai/project/019cafa3-b9d0-722c-b850-f19031209f62" target="_blank">Open in Claude →</a>
+      </div>
+      <div class="agent-card">
+        <div class="agent-icon-circle">📅</div>
+        <div class="agent-name">BE IMC Agent</div>
+        <div class="agent-desc">Your direct line to the Integrated Marketing Calendar. Ask about campaigns, timing, briefs, or tiers — no Asana required.</div>
+        <div class="agent-prompts">"What's launching in April?" · "What tier is Mother's Day?" · "What channels does [campaign] run on?"</div>
+        <a class="agent-cta" href="https://claude.ai/project/019ba2e9-87a9-7677-aafc-8ce788a50a69" target="_blank">Open IMC Agent →</a>
+      </div>
+    </div>
+
+    <hr class="div" />
+
+    <!-- VOCAB -->
+    <div class="sec-head">
+      <div class="sec-title">Vocab: AI Terms To Know</div>
+      <div class="sec-sub">Glossary · Claude Edition</div>
+    </div>
+    <div class="vocab-grid">
+      <div class="vocab-pill">
+        <div class="vocab-term">Prompt</div>
+        <div class="vocab-def">The instruction you give Claude. Specificity and context = better output. Think of it as a creative brief.</div>
+      </div>
+      <div class="vocab-pill">
+        <div class="vocab-term">Chat</div>
+        <div class="vocab-def">A single conversation. Claude remembers everything within it, but starts fresh in a new chat unless you're in a Project.</div>
+      </div>
+      <div class="vocab-pill">
+        <div class="vocab-term">Project</div>
+        <div class="vocab-def">A persistent workspace that retains context across chats. Use for ongoing work so Claude always knows your background.</div>
+      </div>
+      <div class="vocab-pill">
+        <div class="vocab-term">Artifact</div>
+        <div class="vocab-def">A standalone output — doc, code, prompt — that lives outside the chat thread and can be directly edited.</div>
+      </div>
+      <div class="vocab-pill">
+        <div class="vocab-term">Skills</div>
+        <div class="vocab-def">Instruction sets that teach Claude to handle recurring tasks consistently. Powers our BE Brand QA Agent.</div>
+      </div>
+      <div class="vocab-pill">
+        <div class="vocab-term">Memory</div>
+        <div class="vocab-def">Claude's ability to retain facts across conversations. Persistent in Projects; resets in standalone chats.</div>
+      </div>
+      <div class="vocab-pill">
+        <div class="vocab-term">MCP</div>
+        <div class="vocab-def">Model Context Protocol — lets Claude connect to external tools like Asana, Drive, or Slack to take real actions.</div>
+      </div>
+      <div class="vocab-pill">
+        <div class="vocab-term">Hallucination</div>
+        <div class="vocab-def">Confident but incorrect AI output. Always verify before using in briefs, copy, or client-facing materials.</div>
+      </div>
+      <div class="vocab-pill">
+        <div class="vocab-term">AI Agent</div>
+        <div class="vocab-def">AI that executes multi-step workflows autonomously. Our IMC and Brand QA tools are both agents.</div>
+      </div>
+    </div>
+
+    <hr class="div" />
+
+    <!-- CLAUDE PRODUCTS -->
+    <div class="sec-head">
+      <div class="sec-title mid">Claude Products: What's What</div>
+      <div class="sec-sub">Claude.ai · Claude Code · Claude Cowork</div>
+    </div>
+    <div class="products-grid">
+      <div class="product-card">
+        <div class="product-icon">💬</div>
+        <div class="product-tag">Everyday Use</div>
+        <div class="product-name">Claude.ai Chat</div>
+        <div class="product-desc">Web and mobile interface for writing, research, brainstorming, and drafting. Works in Projects for persistent context. Most of the team uses this daily.</div>
+      </div>
+      <div class="product-card">
+        <div class="product-icon">💻</div>
+        <div class="product-tag">For Developers</div>
+        <div class="product-name">Claude Code</div>
+        <div class="product-desc">Command-line tool that lets Claude write, edit, and run code in your codebase. Best for engineering teams building automations and apps.</div>
+      </div>
+      <div class="product-card">
+        <div class="product-icon">🖥️</div>
+        <div class="product-tag">Rolling Out Late March 2026</div>
+        <div class="product-name">Claude Cowork</div>
+        <div class="product-desc">Desktop tool for non-developers. Automates file and task management — move files, fill spreadsheets, organize folders. No code required.</div>
+      </div>
+    </div>
+
+    <hr class="div" />
+
+    <!-- PRO TIP -->
+    <div class="pro-tip">
+      <div class="pro-tip-icon">💡</div>
+      <div>
+        <div class="pro-tip-title">Pro Tip: Branching Chats in Claude</div>
+        <div class="pro-tip-body">Like ChatGPT's branch feature — Claude has it too. Hover over a previous response → click the <strong>edit (pencil) icon</strong> on your message → rewrite your prompt → Claude generates a new branch from that point. Your original thread stays intact. Great for testing different tones or angles without starting over.</div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- FOOTER -->
+  <div class="footer">
+    <div class="footer-tagline">Delight in the Details.</div>
+    <div class="footer-meta">Brilliant Earth · Brand &amp; Retail Experience · March 2026</div>
+  </div>
+
+</body>
+</html>
